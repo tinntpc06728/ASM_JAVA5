@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách bài tập - Minimal-Calis</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (Thêm icon cho sinh động) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        /* CSS chỉnh hiệu ứng mượt mà */
+        .custom-header {
+            background: linear-gradient(135deg, #17251d 0%, #213a2b 100%);
+        }
+        
+        .exercise-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
+        }
+
+        .btn-back {
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover {
+            transform: translateX(-4px);
+        }
+    </style>
+</head>
+
+<body class="bg-light text-dark">
+
+    <!-- Header Gradient với Icon -->
+    <header class="custom-header text-white py-5 shadow-sm mb-4">
+        <div class="container">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <i class="bi bi-fire fs-1 text-success"></i>
+                <h1 class="fw-bold mb-0 display-5">Minimal-Calis</h1>
+            </div>
+            <p class="mb-0 text-white-50 fs-5 ps-1">Danh sách bài tập Calisthenics chuẩn hóa</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-4 pb-5">
+
+        <!-- Nút quay về trang chủ -->
+        <a class="btn btn-outline-success btn-back mb-4 rounded-3 text-decoration-none fw-semibold px-3 py-2" href="/">
+            <i class="bi bi-arrow-left me-1"></i> Quay về trang chủ
+        </a>
+
+        <!-- Tiêu đề trang -->
+        <div class="mb-4">
+            <h2 class="fw-bold text-success display-6 mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-journal-check"></i> Khám phá bài tập
+            </h2>
+            <p class="text-muted fs-5">
+                Lựa chọn bài tập phù hợp và bắt đầu hành trình rèn luyện sức mạnh của bạn.
+            </p>
+        </div>
+
+        <!-- Danh sách bài tập lấy từ Java -->
+        <section class="row g-4">
+
+            <!-- Thymeleaf lặp qua từng bài tập -->
+            <div class="col-md-6 col-lg-4" th:each="exercise : ${exercises}">
+
+                <article class="card h-100 shadow-sm rounded-4 p-3 bg-white exercise-card">
+
+                    <div class="card-body d-flex flex-column justify-content-between p-2">
+
+                        <div>
+                            <!-- Header của Card: Tên + Badge độ khó -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h3 class="card-title h4 fw-bold text-success mb-0" th:text="${exercise.name}">
+                                    Tên bài tập
+                                </h3>
+
+                                <!-- Badge đổi màu tự động dựa trên độ khó -->
+                                <span class="badge px-3 py-2 rounded-pill fw-semibold"
+                                      th:text="${exercise.difficulty}"
+                                      th:classappend="${exercise.difficulty == 'Cơ bản' ? 'bg-success-subtle text-success' : 
+                                                       (exercise.difficulty == 'Trung bình' ? 'bg-warning-subtle text-warning-emphasis' : 'bg-danger-subtle text-danger')}">
+                                    Độ khó
+                                </span>
+                            </div>
+
+                            <!-- Nhóm cơ -->
+                            <div class="card-text text-secondary bg-light p-3 rounded-3 mb-2">
+                                <div class="d-flex align-items-center gap-2 mb-1 text-dark fw-semibold">
+                                    <i class="bi bi-activity text-success"></i> Nhóm cơ tác động:
+                                </div>
+                                <span class="text-body-secondary ps-4 d-block" th:text="${exercise.muscleGroup}">
+                                    Ngực, vai và tay sau
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Nút chi tiết (Chuẩn bị cho tính năng sau) -->
+                        <div class="pt-3 border-top mt-3 text-end">
+                            <span class="text-success small fw-semibold">Bắt đầu tập <i class="bi bi-chevron-right"></i></span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

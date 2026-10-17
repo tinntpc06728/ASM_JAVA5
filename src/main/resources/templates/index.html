@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minimal-Calis - Trang chủ</title>
+
+<!-- Bootstrap 5 CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+	rel="stylesheet">
+
+<style>
+/* Đồng bộ Header Gradient */
+.custom-header {
+	background: linear-gradient(135deg, #17251d 0%, #213a2b 100%);
+}
+
+/* Hiệu ứng Hero Card */
+.hero-card {
+	transition: all 0.3s ease;
+	border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.hero-card:hover {
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Nút xem danh sách bài tập */
+.btn-cta {
+	transition: all 0.2s ease;
+}
+
+.btn-cta:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 16px rgba(25, 135, 84, 0.3) !important;
+}
+</style>
+</head>
+<body class="bg-light text-dark d-flex flex-column min-vh-100">
+
+	<!-- Header / Navbar đồng bộ -->
+	<header class="custom-header text-white py-5 shadow-sm mb-4">
+		<div class="container text-center text-md-start">
+			<div
+				class="d-flex align-items-center justify-content-center justify-content-md-start gap-3 mb-2">
+				<i class="bi bi-fire fs-1 text-success"></i>
+				<h1 class="fw-bold mb-0 display-5">Minimal-Calis</h1>
+			</div>
+			<p class="lead mb-1 text-white-50 ps-1 fs-5">
+				<i class="bi bi-check2-circle text-success me-1"></i> Làm chủ cơ thể
+				của bạn!
+			</p>
+			<p class="lead mb-0 text-white-50 ps-1 fs-5">
+				<i class="bi bi-check2-circle text-success me-1"></i> Làm chủ thời
+				gian của bạn!
+			</p>
+		</div>
+	</header>
+
+	<!-- Main Content -->
+	<main class="container my-auto py-4">
+		<div class="row justify-content-center">
+			<div class="col-lg-10">
+				<section
+					class="card hero-card border-0 shadow-sm p-4 p-md-5 rounded-4 bg-white">
+					<div class="d-flex align-items-center gap-3 mb-3">
+						<i class="bi bi-lightning-charge-fill text-success fs-2"></i>
+						<h2 class="fw-bold text-success display-6 mb-0">Hãy bắt đầu
+							tập luyện</h2>
+					</div>
+
+					<p class="fs-5 text-muted mb-4 lh-lg">
+						Khám phá các bài tập <span class="fw-bold fst-italic text-dark">Calisthenics</span>,
+						rèn luyện <span class="fw-bold text-dark">sức mạnh</span> và nâng
+						cao <span class="fw-bold text-dark">thể hình</span> theo lộ trình
+						của riêng bạn.
+					</p>
+
+					<div>
+						<a
+							class="btn btn-success btn-lg btn-cta px-4 py-3 rounded-3 shadow-sm fw-semibold d-inline-flex align-items-center gap-2"
+							href="/exercises"> <i class="bi bi-journal-text fs-5"></i>
+							Xem danh sách bài tập <i class="bi bi-arrow-right"></i>
+						</a>
+					</div>
+				</section>
+			</div>
+		</div>
+	</main>
+
+	<!-- Footer đồng bộ cho đẹp mắt -->
+	<footer
+		class="mt-auto py-3 bg-white text-center text-muted border-top small">
+		<div class="container">
+			<span>&copy; Minimal-Calis - Lộ trình tập luyện Calisthenics</span>
+		</div>
+	</footer>
+
+	<!-- Bootstrap 5 JS -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
